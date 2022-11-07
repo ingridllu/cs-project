@@ -1,13 +1,18 @@
-class suitcase{
-    constructor (x,y,color){
-        this.x = x;
-        this.y = y;
+class Pancake{
+    constructor (color){
+        this.x = random(0, windowWidth);
+        this.y = windowHeight;
         this.color = color;
     }
-    suitcase (
+    pancakeFall (){
         y=0
-        rect(20, 50, random(0, windowWidth), y)
-        y--
-    )
+        rect(20, 50, y)
+        this.y--
+    }
+    pancakeCatch (){
+        if this.x == platePosition
+        
+    }
+
 
 }
