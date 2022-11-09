@@ -1,16 +1,22 @@
+let pancakes = []
 let plate = {
-  platePosition: 1000/2,
+  x: 1000/2,
   y: 400,
   right : function() {
-    this.platePosition+=10;
+    this.x+=7;
   },
   left : function() {
-    this.platePosition-=10;
+    this.x-=7;
   },
   display: function() {
-    ellipse(this.platePosition, this.y, 120, 50);
-    ellipse(this.platePosition, this.y, 100, 40)
+    fill('white')
+    ellipse(this.x, this.y, 120, 50);
+    ellipse(this.x, this.y, 100, 40)
   }
+  // comeBack: function(){
+  //   this.x=this.x%windowWidth
+  //   if(this.x==-2)
+  // }
 }
 
 function setup() {
@@ -18,6 +24,9 @@ function setup() {
     console.log("hello world")
     plate.display()
     // movingPlate()
+    for (let i = 0; i<100; i++){
+      pancakes.push(new Pancake('red', pancakes.x, -i*200))
+    }
   }
   
   function draw() {
@@ -31,6 +40,12 @@ function setup() {
     if (keyIsDown(37)) {
       plate.left();
     }
+    for (const pancake of pancakes){
+      pancake.fall();
+      pancake.checkCollision();
+    }
+    
+
   }
 
 //   function keyPressed() {
