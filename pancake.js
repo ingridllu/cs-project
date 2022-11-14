@@ -14,16 +14,11 @@ class Pancake{
         return false
     }
     fall (){
-        if (this.checkCollision == false){
+        if (this.checkCollision() == false){
             let y=0
             fill(this.color)
             ellipse(this.x, this.y, 90, 35)
             this.y++
         }
     }
-
-
-
-
-
 }
