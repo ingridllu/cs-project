@@ -20,18 +20,20 @@ let plate = {
 }
 
 function setup() {
+
+    background(255)
+    diner()
     createCanvas(1000, 500);
-    console.log("hello world")
+        console.log("hello world")
     plate.display()
     // movingPlate()
     for (let i = 0; i<100; i++){
-      pancakes.push(new Pancake('red', pancakes.x, -i*200))
+      pancakes.push(new Pancake('beige','brown', pancakes.x, -i*200))
     }
   }
   
   function draw() {
-    background(0,0,0);
-
+  
     plate.display()
 
     if (keyIsDown(39)) {
@@ -46,6 +48,16 @@ function setup() {
     }
     
 
+  }
+
+  function diner(){
+    for(let x = 0; x<100; x++){
+      for(let y = 0; y<100; y++){
+        fill(0)
+        rect(20*x, 20*y, 10)
+        rect(20*x+10, 20*y+10, 10)
+      }
+    }
   }
 
 //   function keyPressed() {

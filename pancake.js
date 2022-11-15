@@ -1,9 +1,10 @@
 class Pancake{
-    constructor (color, x, y){
+    constructor (color, color2, x, y){
          this.x = x
          this.y = y
         this.x = random(0, windowWidth);
         this.color = color;
+        this.color2 = color2;
         this.checkCollision==false
     }
 
@@ -18,6 +19,8 @@ class Pancake{
             let y=0
             fill(this.color)
             ellipse(this.x, this.y, 90, 35)
+            fill(this.color2)
+            ellipse(this.x, this.y-3, 80, 25)
             this.y++
         }
     }
