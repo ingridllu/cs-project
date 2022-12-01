@@ -1,17 +1,29 @@
 let pancakes = []
 let plate = {
-  x: 1000/2,
+  x: 1000 / 2,
   y: 400,
-  right : function() {
-    this.x+=7;
+  numPancakes: 0,
+  right: function () {
+    this.x += 7;
   },
-  left : function() {
-    this.x-=7;
+  left: function () {
+    this.x -= 7;
   },
-  display: function() {
+  display: function () {
     fill('white')
     ellipse(this.x, this.y, 120, 50);
-    ellipse(this.x, this.y, 100, 40)
+    ellipse(this.x, this.y, 100, 40);
+    this.displayPancakes();
+  },
+  displayPancakes: function () {
+    if (this.numPancakes > 0) {
+      for(let i = 0; i<this.numPancakes; i++){
+      fill('beige')
+      ellipse(this.x, this.y - i * 10, 90, 35)
+      fill('brown')
+      ellipse(this.x, this.y - 3 - i * 10, 80, 25)
+    }
+  }
   }
   // comeBack: function(){
   //   this.x=this.x%windowWidth
@@ -21,44 +33,38 @@ let plate = {
 
 function setup() {
 
-    background(255)
-    diner()
-    createCanvas(1000, 500);
-        console.log("hello world")
-    plate.display()
-    // movingPlate()
-    for (let i = 0; i<100; i++){
-      pancakes.push(new Pancake('beige','brown', pancakes.x, -i*200))
-    }
+  createCanvas(1000, 500);
+  console.log("hello world")
+  plate.display()
+  // movingPlate()
+  for (let i = 0; i < 100; i++) {
+    pancakes.push(new Pancake('beige', 'brown', pancakes.x, -i * 200))
   }
-  
-  function draw() {
-  
-    plate.display()
+}
 
-    if (keyIsDown(39)) {
-      plate.right();
-    }
-    if (keyIsDown(37)) {
-      plate.left();
-    }
-    for (const pancake of pancakes){
-      pancake.fall();
-      pancake.checkCollision();
-    }
-    
+function draw() {
+  background(255)
+  plate.display()
 
+  if (keyIsDown(39)) {
+    plate.right();
+  }
+  if (keyIsDown(37)) {
+    plate.left();
+  }
+  for (const pancake of pancakes) {
+    pancake.fall();
+    pancake.checkCollision();
   }
 
-  function diner(){
-    for(let x = 0; x<100; x++){
-      for(let y = 0; y<100; y++){
-        fill(0)
-        rect(20*x, 20*y, 10)
-        rect(20*x+10, 20*y+10, 10)
-      }
-    }
-  }
+
+}
+
+
+
+
+// pancakes speed up
+//how to display pancakes
 
 //   function keyPressed() {
 //     if (keyCode == RIGHT_ARROW) {
