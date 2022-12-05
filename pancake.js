@@ -6,16 +6,15 @@ class Pancake {
         this.color = color;
         this.color2 = color2;
         this.isFalling = true;
-        this.speed = 1.25
+        this.speed = 1.5
         // this.checkCollision==false
     }
 
     checkCollision() {
         if (this.isFalling) {
-            if (Math.abs(this.x - plate.x) < 70 && abs(this.y - (plate.y - (plate.numPancakes)*10-10)) < globalThis.updatedSqeed) {
+            if (Math.abs(this.x - plate.x) < 70 && abs(this.y - (plate.y - (plate.numPancakes)*10-10)) < 5) {
                 this.isFalling = false;
                 plate.numPancakes++;
-                this.speed += .25
                 console.log(this.speed)
             }
         }
@@ -23,13 +22,13 @@ class Pancake {
 
     fall() {
         if (this.isFalling == true) {
-            this.updatedSpeed = this.speed + plate.numPancakes * .10
+            this.updatedSpeed = this.speed + plate.numPancakes * .05
             fill(this.color)
             ellipse(this.x, this.y, 90, 35)
             fill(this.color2)
             ellipse(this.x, this.y - 3, 80, 25)
             this.y+= this.updatedSpeed
                 }
-
+//how do i spread out how the pancakes are falling
     }
 }

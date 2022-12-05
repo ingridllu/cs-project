@@ -1,7 +1,8 @@
 let pancakes = []
 let plate = {
   x: 1000 / 2,
-  y: 400,
+  y: 750,
+  //i cant use windowWidth and windowHeight here, why?
   numPancakes: 0,
   right: function () {
     this.x += 7;
@@ -32,8 +33,7 @@ let plate = {
 }
 
 function setup() {
-
-  createCanvas(1000, 500);
+  createCanvas(1000, windowHeight);
   console.log("hello world")
   plate.display()
   // movingPlate()
@@ -56,15 +56,11 @@ function draw() {
     pancake.fall();
     pancake.checkCollision();
   }
-
-
+  fill(0)
+  textSize(50)
+  text(plate.numPancakes, 50, 50)
 }
 
-
-
-
-// pancakes speed up
-//how to display pancakes
 
 //   function keyPressed() {
 //     if (keyCode == RIGHT_ARROW) {
