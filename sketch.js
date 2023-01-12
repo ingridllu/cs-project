@@ -28,21 +28,21 @@ let plate = {
       }
     }
   },
-    displayBadPancakes: function () {
-      if (this.numPancakes > 0) {
-        for (let i = 0; i < this.numPancakes; i++) {
-          fill('brown')
-          ellipse(this.x, this.y - i * 10, 140, 60)
-          fill('black')
-          ellipse(this.x, this.y - 3 - i * 10, 130, 50)
-        }
+  displayBadPancakes: function () {
+    if (this.numPancakes > 0) {
+      for (let i = 0; i < this.numPancakes; i++) {
+        fill('brown')
+        ellipse(this.x, this.y - i * 10, 140, 60)
+        fill('black')
+        ellipse(this.x, this.y - 3 - i * 10, 130, 50)
       }
+    }
   },
   comeBack: function () {
     if (this.x < -190) {
-      this.x = windowWidth+190
+      this.x = windowWidth + 190
     }
-    if (this.x > windowWidth+190){
+    if (this.x > windowWidth + 190) {
       this.x = -50
     }
   }
@@ -68,45 +68,45 @@ function initGame() {
     else {
       pancakes.push(new Pancake('beige', 'brown', pancakes.x, -i * 400))
     }
-   
+
   }
 }
 
 function draw() {
-  if (gameIsOver()==true) {
+  if (gameIsOver() == true) {
     displayGameOver()
   }
   else {
-  run()
-}
+    run()
+  }
 }
 
-function run(){
+function run() {
   background(255)
-    plate.display()
+  plate.display()
 
-    //moving
-    if (keyIsDown(39)) {
-      plate.right();
-    }
-    if (keyIsDown(37)) {
-      plate.left();
-    }
-    for (const pancake of pancakes) {
-      pancake.fall();
-      pancake.checkCollision();
-    }
-    // for (const badPancake of pancakes){
-    //   badPancake.fall();
-    //   badPancake.checkCollision();
-    //   badPancake.takePoints();
-    // }
-    fill(0)
-    textSize(50)
-    text(plate.numPancakes, 50, 50)
-    console.log(plate.lives)
-    amtOfLives()
-    displayHearts()
+  //moving
+  if (keyIsDown(39)) {
+    plate.right();
+  }
+  if (keyIsDown(37)) {
+    plate.left();
+  }
+  for (const pancake of pancakes) {
+    pancake.fall();
+    pancake.checkCollision();
+  }
+  // for (const badPancake of pancakes){
+  //   badPancake.fall();
+  //   badPancake.checkCollision();
+  //   badPancake.takePoints();
+  // }
+  fill(0)
+  textSize(50)
+  text(plate.numPancakes, 50, 50)
+  console.log(plate.lives)
+  amtOfLives()
+  displayHearts()
 }
 
 function amtOfLives() {
@@ -135,7 +135,7 @@ function displayGameOver() {
   background(0);
   fill(255)
   textSize(100)
-  text("Game Over", windowWidth/2, windowHeight/2)
+  text("Game Over", windowWidth / 2, windowHeight / 2)
 }
 
 function gameIsOver() {

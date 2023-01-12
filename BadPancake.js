@@ -6,11 +6,11 @@ class BadPancake extends Pancake {
         if (super.checkCollision()) {
             this.takePoints();
         }
-       
+
     }
 
     die() {
-        
+
     }
 
     // checkDead() {
@@ -20,7 +20,7 @@ class BadPancake extends Pancake {
     // fall() {
     //     super.fall()
     // }
-    takePoints(){
-        plate.numPancakes=0;
+    takePoints() {
+        plate.numPancakes = 0;
     }
 }
